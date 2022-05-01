@@ -1,0 +1,17 @@
+# Workaround for byobu window autorename issue
+# https://github.com/figmentum/byobu-autorename-fix
+
+# Supported Environment
+# 
+
+# Usage
+#   Method 1: include this file from your .bashrc or .zshrc
+#   Method 2: add following content into your .bashrc or .zshrc directly
+
+__fix_byobu_window_autorename () {
+    if `ps -p $PPID -o comm= | grep -q 'tmux'`; then
+        tmux rename-window ""
+        tmux set-window-option automatic-rename on
+    fi
+}
+__fix_byobu_window_autorename
