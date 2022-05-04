@@ -1,8 +1,10 @@
 # Workaround for byobu window autorename issue
-# https://github.com/figmentum/byobu-autorename-fix
+#   https://github.com/figmentum/byobu-autorename-fix
+#   Licensed under MIT license.
+#   Copyright 2022- figmentum (https://siesta.pm)
 
-# Supported Environment
-# 
+# Supported environments
+#   bash, zsh
 
 # Usage
 #   Method 1: include this file from your .bashrc or .zshrc
