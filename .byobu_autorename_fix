@@ -16,4 +16,7 @@ __fix_byobu_window_autorename () {
         tmux set-window-option automatic-rename on
     fi
 }
-__fix_byobu_window_autorename
+# Applies this workaround only when a shell is launched from byobu with tmux backend
+if [[ $BYOBU_BACKEND == tmux ]]; then
+    __fix_byobu_window_autorename
+fi
