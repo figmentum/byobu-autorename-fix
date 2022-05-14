@@ -11,12 +11,12 @@
 #   Method 2: add following content into your .bashrc or .zshrc directly
 
 __fix_byobu_window_autorename () {
-    if `ps -p $PPID -o comm= | grep -q 'tmux'`; then
-        tmux rename-window ""
-        tmux set-window-option automatic-rename on
+    if [[ $BYOBU_BACKEND == tmux ]]; then
+        if ps -p $PPID -o comm= | grep -q 'tmux'; then
+            tmux rename-window ""
+            tmux set-window-option automatic-rename on
+        fi
     fi
 }
 # Applies this workaround only when a shell is launched from byobu with tmux backend
-if [[ $BYOBU_BACKEND == tmux ]]; then
-    __fix_byobu_window_autorename
-fi
+__fix_byobu_window_autorename
